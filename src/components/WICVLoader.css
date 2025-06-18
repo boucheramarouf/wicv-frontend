@@ -1,0 +1,47 @@
+.wicv-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8fafc;
+}
+
+.wicv-logo {
+  font-size: 3rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+}
+
+.wi {
+  color: #3b82f6;
+}
+
+.cv-arrows {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cv-text {
+  color: #f97316;
+  margin: 0 5px;
+}
+
+.arrow-left, .arrow-right {
+  color: #f97316;
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+.arrow-right {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
