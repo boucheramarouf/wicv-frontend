@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import CVListItem from './CVListItem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import './../CVList.css';
+import React, { useState } from "react";
+import CVListItem from "./CVListItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import "./../CVList.css";
 
 const CVList = ({ cvs = [], refreshData }) => {
-  const itemsPerPage = 3;
+  const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = Math.ceil(cvs.length / itemsPerPage);
 
@@ -37,32 +40,33 @@ const CVList = ({ cvs = [], refreshData }) => {
             </tr>
           </thead>
           <tbody className="dashboard-cv-table-body">
-            {visibleCVs.map(cv => (
-        <CVListItem
-          key={`${cv.idCv}-${cv.utilisateur?.idUtilisateur || 'unknown'}`}
-          cv={cv}
-          refreshData={refreshData}
-        />
-      ))}
+            {visibleCVs.map((cv) => (
+              <CVListItem
+                key={`${cv.idCv}-${cv.utilisateur?.idUtilisateur || "unknown"}`}
+                cv={cv}
+                refreshData={refreshData}
+              />
+            ))}
           </tbody>
         </table>
 
         {totalPages > 1 && (
           <div className="dashboard-cv-pagination">
-            <button 
-              onClick={prevPage} 
+            <button
+              onClick={prevPage}
               disabled={currentPage === 0}
               className="pagination-button"
             >
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
-            
+
             <span className="pagination-info">
-              {startIndex + 1}-{Math.min(startIndex + itemsPerPage, cvs.length)} sur {cvs.length}
+              {startIndex + 1}-{Math.min(startIndex + itemsPerPage, cvs.length)}{" "}
+              sur {cvs.length}
             </span>
-            
-            <button 
-              onClick={nextPage} 
+
+            <button
+              onClick={nextPage}
               disabled={currentPage === totalPages - 1}
               className="pagination-button"
             >

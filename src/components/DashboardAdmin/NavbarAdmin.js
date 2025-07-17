@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faHome } from '@fortawesome/free-solid-svg-icons';
 import NotificationDropdown from '../Dashboard/NotificationDropdown';
 import UserDropdownAdmin from './UserDropdownAdmin';
+import { Link } from 'react-router-dom';
 
 const NavbarAdmin = ({ user, pendingCount, onLogout }) => {
   const [notifications, setNotifications] = useState([]);
@@ -59,6 +60,10 @@ const NavbarAdmin = ({ user, pendingCount, onLogout }) => {
         </div>
 
         <div className="dashboard-right-menu">
+          {/* Icône maison pour retour dashboard admin */}
+          <Link to="/dashboardAdmin" className="dashboard-home-btn" title="Accueil admin" >
+            <FontAwesomeIcon icon={faHome} />
+          </Link>
           <NotificationDropdown 
             notifications={notifications} 
             unreadCount={unreadCount}
