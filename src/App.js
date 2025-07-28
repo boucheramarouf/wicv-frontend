@@ -11,6 +11,11 @@ import ProtectedRoute from "./ProtectedRoute";
 import AdminRoute from "./AdminRoute";
 import MyAccount from "./pages/MyAccount";
 import MyAccountAdmin from "./pages/MyAccountAdmin";
+import ResetPassword from "./pages/ResetPassword";
+import ForgotPassword from "./pages/ForgotPassword";
+import CvEditorPage from "./pages/CvEditorPage";
+import CVEditPage from "./pages/CVEditPage";
+
 
 function App() {
   return (
@@ -28,6 +33,19 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+  path="/cv/edit/:fileName"
+  element={
+    <ProtectedRoute>
+      <CvEditorPage />
+    </ProtectedRoute>
+  }
+/>
+
+
+<Route path="/edit-cv/:filename" element={<CVEditPage />} />
+
+            
             <Route
               path="/dashboardAdmin"
               element={
@@ -68,6 +86,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
           </Routes>
         </div>
       </Router>
